@@ -1,0 +1,20 @@
+{
+  "name": "folio-tx-guard",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Checks a prepared Solana or Base transaction, or a 1Click deposit request, against the trade it was quoted for, before anything is signed",
+  "engines": {
+    "node": ">=24"
+  },
+  "exports": {
+    ".": "./src/index.mjs"
+  },
+  "scripts": {
+    "build": "node --check src/index.mjs",
+    "typecheck": "node --check src/index.mjs && node --check src/base58.mjs && node --check src/solana-wire.mjs && node --check src/solana-guard.mjs && node --check src/solana-signatures.mjs && node --check src/evm-batch.mjs && node --check src/intent-request.mjs",
+    "test": "node --test test/*.test.mjs",
+    "example": "node examples/check-leg.mjs"
+  },
+  "license": "SEE LICENSE IN LICENSE"
+}
